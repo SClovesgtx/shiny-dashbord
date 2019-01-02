@@ -3,14 +3,19 @@ library(shinydashboard)
 
 shinyUI(
   dashboardPage( 
-    dashboardHeader(title = 'Isso é o Header'),
+    dashboardHeader(title = 'EstatCAPS'),
     dashboardSidebar(
+      sliderInput("bins", "Número de barras", 1, 100, 50),
       menuItem('Dashboard'),
-        menuSubItem('Dashbord Finace'),
-        menuSubItem('Dashboard Sales'),
-      menuItem('Data Analysis'),
-      menuItem('Raw Data')
+        menuSubItem('Dashbord Financeiro'),
+        menuSubItem('Dashboard Vendas'),
+      menuItem('Análises Detalhadas'),
+      menuItem('Dado bruto')
     ),
-    dashboardBody()
+    dashboardBody(
+      fluidRow(
+        box(plotOutput("histogram"))
+      )
+    )
   )
 )
