@@ -22,8 +22,24 @@ shinyUI(
                                 icon = icon("warning"),
                                 status = "warning"
                               )
-                              )
-                    ),
+                              ),
+                 dropdownMenu(type = "tasks",
+                              taskItem(
+                                value = 80,
+                                color = "aqua",
+                                "Comprar ações X e Y"
+                                      ),
+                              taskItem(
+                                      value = 55,
+                                      color = 'red',
+                                      "Vender as ações Z"
+                                      ),
+                              taskItem(
+                                      value = 40,
+                                      color = 'green',
+                                      "Verificar cotação do dolar"
+                                      )
+                    )),
     dashboardSidebar(
       sliderInput("bins", "Número de barras", 1, 100, 50),
       sidebarMenu(
