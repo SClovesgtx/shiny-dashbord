@@ -46,7 +46,7 @@ shinyUI(
       menuItem('Dashboard', tabName = 'dashboard', icon = icon('dashboard')),
         menuSubItem('Dashboard Financeiro', tabName = "financeiro"),
         menuSubItem('Dashboard Vendas', 'vendas'),
-      menuItem('Análises Detalhadas'),
+      menuItem('Análises Detalhadas', badgeLabel = "Novo", badgeColor = 'yellow'),
       menuItem('Dado bruto')
     )),
     dashboardBody(
