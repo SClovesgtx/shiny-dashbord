@@ -41,8 +41,8 @@ shinyUI(
                                       )
                     )),
     dashboardSidebar(
-      sliderInput("bins", "Número de barras", 1, 100, 50),
       sidebarMenu(
+      sidebarSearchForm("searchText", "buttonSearch", "Search"),
       menuItem('Dashboard', tabName = 'dashboard', icon = icon('dashboard')),
         menuSubItem('Dashboard Financeiro', tabName = "financeiro"),
         menuSubItem('Dashboard Vendas', 'vendas'),
@@ -53,9 +53,12 @@ shinyUI(
       tabItems(
         tabItem(tabName = "dashboard",
                 fluidRow(
-                  box(
-                    plotOutput("histogram"))
-                  
+                  box(title = "Histogram of Faithful", status = "primary", solidHeader = T, plotOutput("histogram"), background = 'green'),
+                  box(title = 'Controls for Dashboard', status = 'warning', solidHeader = T, background = 'aqua',
+                      "Use esses controles para alterar o gráfico", br(),
+                      "Tome cuidado",
+                      sliderInput("bins", "Número de barras", 1, 100, 50),
+                      textInput(inputId =  "text_input", label = 'search opportunities', value = '123456'))
                   )),
                 
               tabItem(tabName = "financeiro", 
@@ -65,7 +68,6 @@ shinyUI(
             tabItem(tabName = "vendas", 
                     h2("Dashboard Vendas")
                 )
-             
       )
     )
 )
