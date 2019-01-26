@@ -17,4 +17,9 @@ shinyServer(function(input, output){
     dropdownMenu(type = "messages", .list = msgs)
     
   })
+  
+  output$approvedSales <- renderInfoBox({
+    infoBox("Approval Sales", "10,000,000", icon = icon('bar-chart-o'))
+  })
+  
 })

@@ -53,6 +53,11 @@ shinyUI(
       tabItems(
         tabItem(tabName = "dashboard",
                 fluidRow(
+                  infoBox("Sales", 100000, icon = icon('thumbs-up')),
+                  infoBox("Conversion %", paste0("20%"), icon = icon("warning")),
+                  infoBoxOutput("approvedSales")
+                ),
+                fluidRow(
                   tabBox(
                   tabPanel(title = "Histogram of Faithful", status = "primary", solidHeader = T, plotOutput("histogram"), background = 'green'),
                   tabPanel(title = 'Controls for Dashboard', status = 'warning', solidHeader = T, background = 'aqua',
